@@ -1,3 +1,6 @@
+# DESIGN
+# Awareness and Development of a Rock Bees Colony Detection & Location Monitoring Application
+
 1. Introduction:
 Rock bees are crucial for pollination and maintaining ecological balance. Unfortunately, many rock bee colonies are disturbed or destroyed due to a lack of awareness and increasing human activities. This project aims to create an Android application that helps detect rock bee colonies, track their locations, and raise awareness to support conservation.
 
