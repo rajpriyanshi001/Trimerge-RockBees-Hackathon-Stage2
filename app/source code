@@ -1,1 +1,119 @@
+RockBee Alert – Pre UI-Polish Stable Working Code:
 
+AndroidManifest.xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.rockbeealert">
+    <application
+        android:allowBackup="true"
+        android:label="RockBee Alert"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".MainActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".AddColonyActivity"/>
+        <activity android:name=".EmergencyActivity"/>
+        <activity android:name=".LearnActivity"/>
+        <activity android:name=".MapActivity"/>
+        <activity android:name=".ProfileActivity"/>
+    </application>
+</manifest>
+MainActivity.java
+package com.example.rockbeealert;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Button btnAddColony = findViewById(R.id.btnAddColony);
+        btnAddColony.setOnClickListener(v ->
+            startActivity(new Intent(this, AddColonyActivity.class))
+        );
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNavigation);
+        bottomNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.nav_home) return true;
+            if (id == R.id.nav_map) startActivity(new Intent(this, MapActivity.class));
+            if (id == R.id.nav_emergency) startActivity(new Intent(this, EmergencyActivity.class));
+            if (id == R.id.nav_learn) startActivity(new Intent(this, LearnActivity.class));
+            if (id == R.id.nav_profile) startActivity(new Intent(this, ProfileActivity.class));
+            return true;
+        });
+    }
+}
+activity_main.xml
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_above="@id/bottomNavigation">
+        <TextView
+            android:text="RockBee Alert"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
+        <Button
+            android:id="@+id/btnAddColony"
+            android:text="Add Colony"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu"/>
+</RelativeLayout>
+bottom_nav_menu.xml
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_home" android:title="Home"/>
+    <item android:id="@+id/nav_map" android:title="Map"/>
+    <item android:id="@+id/nav_emergency" android:title="Emergency"/>
+    <item android:id="@+id/nav_learn" android:title="Learn"/>
+    <item android:id="@+id/nav_profile" android:title="Profile"/>
+</menu>
+AddColonyActivity.java
+package com.example.rockbeealert;
+import android.os.Bundle;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+public class AddColonyActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_colony);
+        Toast.makeText(this, "Add Colony Screen", Toast.LENGTH_SHORT).show();
+    }
+}
+activity_add_colony.xml
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <TextView
+            android:text="Add Rock Bee Colony"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+        <Button
+            android:text="AI Detection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>
