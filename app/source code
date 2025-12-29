@@ -20,6 +20,7 @@ AndroidManifest.xml
         <activity android:name=".ProfileActivity"/>
     </application>
 </manifest>
+
 MainActivity.java
 package com.example.rockbeealert;
 import android.content.Intent;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+
 activity_main.xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -77,6 +79,7 @@ activity_main.xml
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu"/>
 </RelativeLayout>
+
 bottom_nav_menu.xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/nav_home" android:title="Home"/>
@@ -85,6 +88,7 @@ bottom_nav_menu.xml
     <item android:id="@+id/nav_learn" android:title="Learn"/>
     <item android:id="@+id/nav_profile" android:title="Profile"/>
 </menu>
+
 AddColonyActivity.java
 package com.example.rockbeealert;
 import android.os.Bundle;
@@ -98,6 +102,7 @@ public class AddColonyActivity extends AppCompatActivity {
         Toast.makeText(this, "Add Colony Screen", Toast.LENGTH_SHORT).show();
     }
 }
+
 activity_add_colony.xml
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
