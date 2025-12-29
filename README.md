@@ -17,12 +17,12 @@ Home screen with app title and navigation.
 - Clean, stable app flow before UI polish. 
 
 # Tech Stack Used 
--Platform : Android 
--Language: Java 
--UI: XML (Material Design components) 
--IDE : Android Studio 
--Architecture Activity-based navigation 
--Version Control :Git and  GitHub 
+- Platform : Android 
+- Language: Java 
+- UI: XML (Material Design components) 
+- IDE : Android Studio 
+- Architecture Activity-based navigation 
+- Version Control :Git and  GitHub 
 
 # App Architecture 
 MainActivity   
